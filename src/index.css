@@ -81,7 +81,15 @@ html {
 }
 
 .form-inputs {
-	@apply p-2 rounded-lg bg-white focus:outline-none border border-cd-blue w-full h-12;
+	@apply py-2 px-4 rounded-lg bg-white focus:outline-none border border-cd-blue w-full h-12 font-gil-mid text-cd-gray;
+}
+
+.description-input {
+	@apply rounded-lg bg-white focus:outline-none border border-cd-blue w-full h-96 overflow-hidden font-gil-mid text-cd-gray;
+}
+
+.list-edit > * {
+	@apply list-disc list-inside py-2 space-y-2;
 }
 
 @-webkit-keyframes scale-up-center {

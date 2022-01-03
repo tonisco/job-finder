@@ -20,14 +20,14 @@ const Login = () => {
 			toastError(error)
 			dispatch(clearUserError())
 		}
-		// if (user.status === "success") {
-		// 	toastSuccess(user.message)
-		// 	dispatch(clearUserMessage)
-		// 	const timeout = window.setTimeout(() => {
-		// 		navigate("/admin/home")
-		// 	}, 1500)
-		// 	return () => window.clearTimeout(timeout)
-		// }
+		if (user.status === "success") {
+			toastSuccess(user.message)
+			dispatch(clearUserMessage)
+			const timeout = window.setTimeout(() => {
+				navigate("/admin/home")
+			}, 1500)
+			return () => window.clearTimeout(timeout)
+		}
 	}, [dispatch, error, user.message, user.status, navigate])
 
 	const handleLogin = (e: FormEvent) => {

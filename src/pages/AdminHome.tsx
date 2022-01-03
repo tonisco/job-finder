@@ -8,14 +8,21 @@ import JobCreateForm from "../components/form/JobCreateForm"
 
 const AdminHome = () => {
 	const [showForm, setShowForm] = useState<boolean>(false)
+	const [editId, setEditId] = useState<number>(0)
 
 	const changeForm = (): void => {
 		setShowForm((currVal: boolean) => !currVal)
 	}
-
 	return (
 		<>
-			{showForm && <JobCreateForm changeForm={changeForm} />}
+			{showForm && (
+				<JobCreateForm
+					showForm={showForm}
+					changeForm={changeForm}
+					setEditId={setEditId}
+					editId={editId}
+				/>
+			)}
 			<div
 				className={`bg-cl-gray ${showForm ? "h-screen overflow-y-hidden" : "min-h-screen"}`}
 			>
@@ -43,7 +50,7 @@ const AdminHome = () => {
 							<FiPlus /> <p>New Job</p>
 						</button>
 					</div>
-					<JobsTable />
+					<JobsTable setEditId={setEditId} changeForm={changeForm} />
 				</div>
 				<Footer />
 			</div>

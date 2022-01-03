@@ -20,7 +20,6 @@ export interface JobForm {
 	category: string
 	salary: string
 	description: string
-	benefits: string
 	type: string
 	work_condition: string
 }

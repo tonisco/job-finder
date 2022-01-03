@@ -94,8 +94,9 @@ export const createJobSlice = createSlice({
 	name: "createJob",
 	initialState: createJobInitial,
 	reducers: {
-		clearCreateJobError: (state) => {
+		clearCreateJob: (state) => {
 			state.error = ""
+			state.data = {}
 		},
 	},
 	extraReducers: (builder) => {
@@ -115,7 +116,7 @@ export const createJobSlice = createSlice({
 	},
 })
 
-export const { clearCreateJobError } = createJobSlice.actions
+export const { clearCreateJob } = createJobSlice.actions
 
 interface EditJobPayLoad {
 	loading: boolean
@@ -200,7 +201,11 @@ interface UserPayload {
 const userInitial: UserPayload = {
 	loading: false,
 	error: "",
-	user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user") || "{}") : {},
+	user: {
+		data: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user") || "{}") : {},
+		message: "",
+		status: "",
+	},
 }
 
 export const userSlice = createSlice({

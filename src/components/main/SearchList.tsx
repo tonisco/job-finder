@@ -29,7 +29,7 @@ const SearchList = ({ selected, setSelected }: Details) => {
 	return (
 		<div className="mt-20 w-full">
 			<div className="flex w-full justify-between">
-				<h2 className="font-gil-mid">Showing 68 results</h2>
+				<h2 className="font-gil-mid">Showing {data.total} results</h2>
 				<div className="">
 					<label htmlFor="sort">Sort By</label>
 					<select>
